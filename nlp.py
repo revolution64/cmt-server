@@ -24,6 +24,7 @@ def extract_most_used_lemmas_and_pos(doc):
     return { "pos_per_sentence": pos_per_sentence, "lemmas": lemmas}        
 
 def process_text(text):
+    print("Hi guys, im here" + text)
     doc = nlp(text);
     result = extract_most_used_lemmas_and_pos(doc);
     most_occurring_pos = Counter(result["pos_per_sentence"]).most_common(3)
