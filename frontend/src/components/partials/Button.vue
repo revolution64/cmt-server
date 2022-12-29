@@ -13,7 +13,7 @@ defineProps({
 </script>
 
 <template>
-    <button class="button" />
+    <Button class="button" />
 </template>
 
 <style scoped>
