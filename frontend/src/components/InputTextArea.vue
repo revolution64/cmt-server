@@ -3,12 +3,17 @@ defineProps({
   defaultText: {
     type: String,
     required: false
+  },
+  onChange: {
+    type: Function,
+    required: false
   }
 })
 </script>
 
 <template>
-  <textarea class="text-input"/>
+  <v-textarea class="text-input" v-model="text" placeholder="placeholder"/>
+  {{ text }}
 </template>
 
 <style scoped>
