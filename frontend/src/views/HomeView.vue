@@ -1,9 +1,11 @@
 <script setup>
-import TheWelcome from '../components/TheWelcome.vue'
+import TextInput from '../components/TextInput.vue'
+import TextReview from '../components/TextReview.vue';
 </script>
 
 <template>
   <main>
-    <TheWelcome />
+    <TextInput />
+    <TextReview />
   </main>
 </template>

@@ -29,4 +29,4 @@ def process_text(text):
     result = extract_most_used_lemmas_and_pos(doc);
     most_occurring_pos = Counter(result["pos_per_sentence"]).most_common(3)
     most_occuring_lemmas = Counter(result["lemmas"]).most_common(3)
-    return {"most_occurring_pos": most_occurring_pos, "most_occuring_lemmas": most_occuring_lemmas}
+    return {"most_occurring_pos": most_occurring_pos, "most_occurring_lemmas": most_occuring_lemmas}
