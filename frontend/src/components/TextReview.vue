@@ -5,22 +5,22 @@ import TitleParagraphSection from './partials/TitleParagraphSection.vue';
 
 <script>
 export default {
-    data() {
-        return {
-            textCorrections: store.textCorrections
-        };
-    },
-    methods: {},
-    components: { TitleParagraphSection }
+  methods: {
+    getListOfLemmas() {
+      return store.textCorrections.most_occurring_lemmas.map((lemma) => ({ title: lemma.lemma, value: lemma.occurrences }));
+    }
+  },
+  components: { TitleParagraphSection }
 }
 </script>
 
 <template>
-  
+
   <div>
-    <TitleParagraphSection title="Spelfouten" text="Geen spelfouten gevonden" />
-    <TitleParagraphSection title="Veel gebruikte woorden" :text="store.textCorrections.most_occurring_lemmas" />
-    <TitleParagraphSection title="Veel gebruikte zinsstructuren" :text="store.textCorrections.most_occurring_pos"/>
+    <TitleParagraphSection title="Veel gebruikte woorden" />
+    <v-list three-line="true" lines="three" title="Veel gebruikte woorden" :items="getListOfLemmas()">
+
+    </v-list>
   </div>
 </template>
 <style scoped>

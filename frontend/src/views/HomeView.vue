@@ -5,6 +5,7 @@ import TextReview from '../components/TextReview.vue';
 
 <template>
   <main>
+
     <TextInput />
     <TextReview />
   </main>
