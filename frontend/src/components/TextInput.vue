@@ -7,7 +7,8 @@ import { analyzeText } from '../api/cmt'
 export default {
   data() {
     return {
-      text: ""
+      text: "",
+      isLoading: false
     }
   },
   methods: {
@@ -15,11 +16,14 @@ export default {
       this.text = text;
     },
     sendTextToBackend() {
+      this.isLoading = true;
       return analyzeText(this.text)
         .then((res) => {
+          this.isLoading = false;
           store.setTextCorrections(res.data);
         })
         .catch((e) => {
+          this.isLoading = false;
           console.error(e);
         });
     }
@@ -28,8 +32,12 @@ export default {
 </script>
 
 <template>
-  <v-textarea @update:modelValue="print" placeholder="Laten we eens proberen met een placeholder text. Waarom werkt dit niet."/>
-  <v-btn @click="sendTextToBackend">Verbeter mijn tekst!</v-btn>
+  <div v-if="this.isLoading === false">
+    <v-textarea @update:modelValue="print"
+      placeholder="Laten we eens proberen met een placeholder text. Waarom werkt dit niet." />
+    <v-btn @click="sendTextToBackend">Stel synoniemen voor!</v-btn>
+  </div>
+  <v-progress-circular v-else indeterminate />
 </template>
 <style scoped>
 @media (min-width: 1024px) {}

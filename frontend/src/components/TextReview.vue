@@ -1,13 +1,22 @@
 <script setup>
-import { store } from '../store/store';
+import { getCurrentInstance } from 'vue';
 import TitleParagraphSection from './partials/TitleParagraphSection.vue';
+import { store } from '../store/store';
+
 </script>
 
 <script>
 export default {
+  data() {
+    return {
+      store,
+      componentKey: 0
+    }
+  },
+
   methods: {
-    getListOfLemmas() {
-      return store.textCorrections.most_occurring_lemmas.map((lemma) => ({ title: lemma.lemma, value: lemma.occurrences }));
+    getMostOccurringLemmasInListForm(lemmas) {
+      return lemmas.map((lemma) => ({ title: lemma.lemma, value: lemma.occurrences }));
     }
   },
   components: { TitleParagraphSection }
@@ -15,15 +24,24 @@ export default {
 </script>
 
 <template>
-
-  <div>
-    <TitleParagraphSection title="Veel gebruikte woorden" />
-    <v-list three-line="true" lines="three" title="Veel gebruikte woorden" :items="getListOfLemmas()">
-
+    <v-list className="synonymList" :key="componentKey" three-line="true" lines="three" title="Veel gebruikte woorden">
+      <v-list-item v-for="item in store.textCorrections.most_occurring_lemmas" :key="item.lemma">
+        <div>
+          Het woord <overline class="font-weight-black" >{{ item.lemma }}</overline> 
+          komt <overline class="font-weight-black">{{ item.occurences }} </overline> keer voor in jouw tekst
+        </div>
+         Enkele mogelijke <overline class="font-weight-black">synoniemen</overline>: {{ item.synonyms.map((woord) => ` ${woord}`).toString() }}
+      </v-list-item>
     </v-list>
-  </div>
 </template>
 <style scoped>
+.synonymList {
+  padding-top: 1rem
+}
+
+.v-list-item--density-default:not(.v-list-item--nav).v-list-item--three-line { 
+  padding-inline-start: 0px;
+}
 @media (min-width: 1024px) {}
 </style>
 
