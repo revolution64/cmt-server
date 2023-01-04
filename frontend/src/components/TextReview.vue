@@ -16,7 +16,7 @@ export default {
 
   methods: {
     getMostOccurringLemmasInListForm(lemmas) {
-      return lemmas.map((lemma) => ({ title: lemma.lemma, value: lemma.occurrences }));
+      return lemmas.map((lemma) => ({ title: lemma.lemma, value: lemma.occurrences })).slice(0,10);
     }
   },
   components: { TitleParagraphSection }
@@ -27,10 +27,10 @@ export default {
     <v-list className="synonymList" :key="componentKey" three-line="true" lines="three" title="Veel gebruikte woorden">
       <v-list-item v-for="item in store.textCorrections.most_occurring_lemmas" :key="item.lemma">
         <div>
-          Het woord <overline class="font-weight-black" >{{ item.lemma }}</overline> 
+          Het woord <overline class="font-weight-black" >'{{ item.lemma }}'</overline> 
           komt <overline class="font-weight-black">{{ item.occurences }} </overline> keer voor in jouw tekst
         </div>
-         Enkele mogelijke <overline class="font-weight-black">synoniemen</overline>: {{ item.synonyms.map((woord) => ` ${woord}`).toString() }}
+         Enkele mogelijke <overline class="font-weight-black">synoniemen voor {{item.lemma}}</overline> zijn: {{ item.synonyms.map((woord) => ` ${woord}`).toString() }}
       </v-list-item>
     </v-list>
 </template>

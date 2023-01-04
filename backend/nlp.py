@@ -37,7 +37,7 @@ def process_text(text):
 
     for lemma in most_occuring_lemmas:
         synonyms = instance.les_lemma_synonyms(lemma[0])
-        most_occuring_lemmas_with_synonyms.append({"lemma": lemma[0], "occurences": lemma[1], "synonyms": list(synonyms)})
+        most_occuring_lemmas_with_synonyms.append({"lemma": lemma[0], "occurences": lemma[1], "synonyms": list(synonyms)[0:10]})
         
     print(most_occuring_lemmas_with_synonyms);
 

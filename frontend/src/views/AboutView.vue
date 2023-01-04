@@ -1,15 +1,13 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
-  </div>
+    <p class="about-paragraph">Deze tool gebruikt Machine Learning en Natural Language Processing om de tekst om te zetten naar POS (part of speech) en lemmas (kernwoorden). Vervolgens wordt die data gebruikt om synoniemen voor te stellen.</p>
+    <p class="about-paragraph">Om de tekst via NLP technieken om te zetten naar POS en Lemma, werden modellen van <a href="https://spacy.io/">spacy</a> gebruikt</p>
+    <p class="about-paragraph">Om de synoniemen voor te stellen, werd de Python module <a href="https://github.com/cltl/OpenDutchWordnet">OpenDutchWordnet</a> gebruikt </p>
 </template>
 
 <style>
-@media (min-width: 1024px) {
-  .about {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
+
+  .about-paragraph {
+    padding: 1rem 0rem;
   }
-}
+
 </style>
