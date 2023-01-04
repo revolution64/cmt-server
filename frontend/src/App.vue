@@ -9,6 +9,7 @@ import { RouterLink, RouterView } from 'vue-router'
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
       </nav>
+      <h2>Synoniemen<span class="titleSecondaryColor">zoeker</span></h2>
     </div>
   </header>
 
@@ -16,9 +17,17 @@ import { RouterLink, RouterView } from 'vue-router'
 </template>
 
 <style scoped>
+h2 {
+  margin-top: 1rem;
+}
+
 header {
   line-height: 1.5;
   max-height: 100vh;
+}
+
+.titleSecondaryColor {
+  color: var(--secondary-color)
 }
 
 .logo {
@@ -69,7 +78,6 @@ nav a:first-of-type {
 
   nav {
     text-align: left;
-    margin-left: -1rem;
     font-size: 1rem;
 
     padding: 1rem 0;

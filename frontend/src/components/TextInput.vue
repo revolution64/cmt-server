@@ -37,12 +37,29 @@ export default {
     <v-textarea @update:modelValue="print" placeholder="Plak hier jouw tekst!" />
     <v-btn @click="sendTextToBackend">Stel synoniemen voor!</v-btn>
   </div>
-  <v-progress-circular v-else indeterminate />
+  <div class="loader" v-else>
+    <v-progress-circular indeterminate color="var(--secondary-color)" size="48" />
+  </div>
 </template>
 <style scoped>
 .intro {
   padding: 1rem 0
 }
-@media (min-width: 1024px) {}
+
+.loader {
+  display: flex;
+  height: 50vw;
+
+
+  align-items: center;
+  justify-content: center;
+}
+
+@media (min-width: 1024px) {
+  .loader {
+    height: 25vw;
+  }
+
+}
 </style>
 

@@ -1,8 +1,6 @@
 <script setup>
-import { getCurrentInstance } from 'vue';
 import TitleParagraphSection from './partials/TitleParagraphSection.vue';
 import { store } from '../store/store';
-
 </script>
 
 <script>
@@ -27,7 +25,7 @@ export default {
     <v-list className="synonymList" :key="componentKey" three-line="true" lines="three" title="Veel gebruikte woorden">
       <v-list-item v-for="item in store.textCorrections.most_occurring_lemmas" :key="item.lemma">
         <div>
-          Het woord <overline class="font-weight-black" >'{{ item.lemma }}'</overline> 
+          Het woord '<overline class="font-weight-black" >{{ item.lemma }}</overline>'
           komt <overline class="font-weight-black">{{ item.occurences }} </overline> keer voor in jouw tekst
         </div>
          Enkele mogelijke <overline class="font-weight-black">synoniemen voor {{item.lemma}}</overline> zijn: {{ item.synonyms.map((woord) => ` ${woord}`).toString() }}

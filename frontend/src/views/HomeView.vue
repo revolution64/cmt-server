@@ -1,12 +1,12 @@
 <script setup>
 import TextInput from '../components/TextInput.vue'
-import TextReview from '../components/TextReview.vue';
+import Synonyms from '../components/Synonyms.vue';
 </script>
 
 <template>
   <main>
 
     <TextInput />
-    <TextReview />
+    <Synonyms />
   </main>
 </template>
