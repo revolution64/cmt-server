@@ -2,13 +2,13 @@
     "version": 2,
     "builds": [
         {
-            "src": "./flask-server.py",
+            "src": "./backend/flask-server.py",
             "use": "@vercel/python"
         }
     ],
     "routes": [
         {
-            "src": "/(.*)",
+            "src": "/backend/(.*)",
             "dest": "/"
         }
     ]
