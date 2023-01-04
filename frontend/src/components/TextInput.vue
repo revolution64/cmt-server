@@ -33,13 +33,16 @@ export default {
 
 <template>
   <div v-if="this.isLoading === false">
-    <v-textarea @update:modelValue="print"
-      placeholder="Laten we eens proberen met een placeholder text. Waarom werkt dit niet." />
+    <p class="intro">Gebruik NLP en Machine Learning technieken om synoniemen te vinden voor jouw tekst.</p>
+    <v-textarea @update:modelValue="print" placeholder="Plak hier jouw tekst!" />
     <v-btn @click="sendTextToBackend">Stel synoniemen voor!</v-btn>
   </div>
   <v-progress-circular v-else indeterminate />
 </template>
 <style scoped>
+.intro {
+  padding: 1rem 0
+}
 @media (min-width: 1024px) {}
 </style>
 
