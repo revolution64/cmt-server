@@ -1,7 +1,7 @@
 import { reactive } from 'vue'
 
 export const store = reactive({
-    textCorrections: { most_occurring_lemmas: [{ lemma: "tryout", occurrences: 5, synonyms: ["Test", "Test3"] }] },
+    textCorrections: { most_occurring_lemmas: [{ lemma: "tekst", occurences: 1, synonyms: ["geschrift", "document", "schrift"] }] },
     setTextCorrections(response) {
         this.textCorrections = response;
     }

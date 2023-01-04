@@ -32,7 +32,7 @@ export default {
 </script>
 
 <template>
-  <div v-if="this.isLoading === false">
+  <div v-if="isLoading === false">
     <p class="intro">Gebruik NLP en Machine Learning technieken om synoniemen te vinden voor jouw tekst.</p>
     <v-textarea @update:modelValue="print" placeholder="Plak hier jouw tekst!" />
     <v-btn @click="sendTextToBackend">Stel synoniemen voor!</v-btn>
