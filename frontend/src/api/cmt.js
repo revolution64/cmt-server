@@ -5,7 +5,7 @@ function isLocalHost(url) {
 }
 
 function getHost(url) {
-    return !isLocalHost(url) ? 'http://localhost:5002' : 'https://revolution64.pythonanywhere.com'
+    return isLocalHost(url) ? 'http://localhost:5002' : 'https://revolution64.pythonanywhere.com'
 }
 
 export const analyzeText = (text) => axios.post(getHost(window.location.host), {
