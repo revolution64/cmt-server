@@ -28,7 +28,7 @@ def getSynonyms(most_occuring_lemmas):
     most_occuring_lemmas_with_synonyms = []
 
     for lemma in most_occuring_lemmas:
-        synonyms = list(instance.les_lemma_synonyms(lemma[0]))[0:10]
+        synonyms = list(instance.les_lemma_synonyms(lemma[0].lower()))[0:10]
         if lemma[0] in synonyms:
             synonyms.remove(lemma[0])
         most_occuring_lemmas_with_synonyms.append(
