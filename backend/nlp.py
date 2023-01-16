@@ -3,6 +3,7 @@ from OpenDutchWordnet import Wn_grid_parser
 from collections import Counter
 
 nlp = spacy.load("nl_core_news_md")
+instance = Wn_grid_parser(Wn_grid_parser.odwn)
 
 def lemmatizeAndPosTagDoc(text):
     doc = nlp(text)
@@ -25,7 +26,6 @@ def lemmatizeAndPosTagDoc(text):
 
 def getSynonyms(most_occuring_lemmas):
     most_occuring_lemmas_with_synonyms = []
-    instance = Wn_grid_parser(Wn_grid_parser.odwn)
 
     for lemma in most_occuring_lemmas:
         synonyms = list(instance.les_lemma_synonyms(lemma[0]))[0:10]
