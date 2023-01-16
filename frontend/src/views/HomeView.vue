@@ -5,7 +5,6 @@ import Synonyms from '../components/Synonyms.vue';
 
 <template>
   <main>
-
     <TextInput />
     <Synonyms />
   </main>

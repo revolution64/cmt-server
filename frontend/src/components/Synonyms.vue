@@ -22,7 +22,7 @@ export default {
 </script>
 
 <template>
-    <v-list className="synonymList" :key="componentKey" three-line="true" lines="three" title="Veel gebruikte woorden">
+    <v-list v-if="!store.isLoading" className="synonymList" :key="componentKey" three-line="true" lines="three" title="Veel gebruikte woorden">
       <v-list-item v-for="item in store.textCorrections.most_occurring_lemmas" :key="item.lemma">
         <div>
           Het woord '<overline class="font-weight-black" >{{ item.lemma }}</overline>'
