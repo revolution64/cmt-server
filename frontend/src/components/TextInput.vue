@@ -12,6 +12,13 @@ export default {
     }
   },
   methods: {
+    scrollToSynonyms() {
+      document.getElementById("synonyms").scrollIntoView({
+        behavior: "smooth",
+        block: 'center',
+        inline: 'center'
+      });
+    },
     print(text) {
       this.text = text;
     },
@@ -21,6 +28,7 @@ export default {
       return analyzeText(this.text)
         .then((res) => {
           store.isLoading = false;
+          this.scrollToSynonyms();
           store.setTextCorrections(res.data);
         })
         .catch((e) => {
@@ -40,7 +48,7 @@ export default {
     <p class="intro">De tool kan verschillende woordvormen linken aan 1 kernwoord (lemma) - dus ' blijven' en 'bleef'
       worden als eenzelfde woord aanzien. De synoniemen suggesties zijn gegenereerd door Machine Learning, gebruik is
       dus op eigen risico.</p>
-    <v-textarea @update:modelValue="print" :placeholder="store.currentlyAnalyzedText" />
+    <v-textarea id="text-input" @update:modelValue="print" :placeholder="store.currentlyAnalyzedText" />
     <v-btn v-on:keyup.enter="sendTextToBackend()" type="submit" @click="sendTextToBackend">Stel synoniemen voor!</v-btn>
   </div>
   <div class="loader" v-else>
