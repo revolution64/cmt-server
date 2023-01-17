@@ -9,5 +9,5 @@ function getHost(url) {
 }
 
 export const analyzeText = (text) => axios.post(getHost(window.location.host), {
-    "text": text
+    "text": text ? text.charAt(0).toLowerCase() + text.slice(1) : text
 });

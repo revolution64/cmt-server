@@ -11,6 +11,6 @@
 
 <style scoped>
   .intro {
-    padding: 1rem 0
+    padding: 0.6rem 0
   }
 </style>

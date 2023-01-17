@@ -320,7 +320,7 @@ class Les():
             self.les_load_synonyms_dicts()
 
         synonyms = set()
-        for synset_id in self.lemma2synsets[lemma]:
+        for synset_id in [x for x in self.lemma2synsets[lemma] if x is not None]:
             synonyms.update(self.synset2lemmas[synset_id])
 
         return synonyms

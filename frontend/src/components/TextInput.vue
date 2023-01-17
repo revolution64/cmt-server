@@ -13,13 +13,6 @@ export default {
     }
   },
   methods: {
-    scrollToSynonyms() {
-      document.getElementById("synonyms").scrollIntoView({
-        behavior: "smooth",
-        block: 'center',
-        inline: 'center'
-      });
-    },
     print(text) {
       this.text = text;
     },
@@ -29,7 +22,7 @@ export default {
       return analyzeText(this.text)
         .then((res) => {
           store.isLoading = false;
-          this.scrollToSynonyms();
+          store.hasFinishedCall = true;
           store.setTextCorrections(res.data);
         })
         .catch((e) => {
