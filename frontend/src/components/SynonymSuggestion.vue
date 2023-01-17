@@ -21,7 +21,7 @@ export default {
   }}
   </div>
   <div v-else>
-    Ons AI model heeft geen synoniemen gevonden, zoek synoniemen voor <overline class="font-weight-black">{{ lemma }}</overline> op <a
+    Het AI model heeft geen synoniemen gevonden, zoek synoniemen voor <overline class="font-weight-black">{{ lemma }}</overline> op <a
       :href="'https://synoniemen.net/index.php?zoekterm=' + lemma">synoniemen.net</a>
   </div>
 </template>
