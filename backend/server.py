@@ -17,6 +17,10 @@ def process():
     return jsonify(result)
 
 
+@app.route('/health', methods=['GET'])
+def health():
+    return jsonify({"status": "ok"})
+
 @app.route('/<path:path>')
 def static_file(path):
     return app.send_static_file(path)
